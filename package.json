@@ -1,9 +1,9 @@
 {
   "name": "draft-pad",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": false,
   "main": "dist/index.js",
-  "types": "dist/src/index.d.ts",
+  "types": "dist/index.d.ts",
   "author": "slot-dumpling",
   "dependencies": {
     "@react-hook/size": "^2.1.2",
@@ -18,7 +18,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack --config webpack.dev.js",
-    "postinstall": "patch-package"
+    "patch": "patch-package"
   },
   "devDependencies": {
     "@types/heap": "^0.2.31",

@@ -1,6 +1,5 @@
 var path = require("path");
-const TerserPlugin = require("terser-webpack-plugin");
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+// const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 module.exports = {
   mode: "production",
@@ -20,14 +19,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif|svg)$/i,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: true,
-            },
-          },
-        ],
+        use: "url-loader",
       },
       {
         test: /\.css$/,
@@ -41,5 +33,7 @@ module.exports = {
   externals: {
     react: "react",
     "react-dom": "react-dom",
+    immutable: "immutable",
   },
+  // plugins: [new BundleAnalyzerPlugin()],
 };
