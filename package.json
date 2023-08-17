@@ -17,7 +17,7 @@
   },
   "scripts": {
     "build": "webpack",
-    "dev": "webpack --config webpack.dev.js",
+    "dev": "rm -r dist && webpack --config webpack.dev.js",
     "patch": "patch-package"
   },
   "devDependencies": {

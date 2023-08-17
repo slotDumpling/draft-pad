@@ -2,10 +2,13 @@ var path = require("path");
 
 module.exports = {
   mode: "production",
-  entry: "./src/index.tsx",
+  entry: {
+    index: "./src/index.tsx",
+    lib: "./src/lib",
+  },
   output: {
     path: path.resolve("dist"),
-    filename: "index.js",
+    filename: "[name].js",
     libraryTarget: "commonjs2",
   },
   devtool: "source-map",
@@ -32,5 +35,6 @@ module.exports = {
   externals: {
     react: "react",
     "react-dom": "react-dom",
+    immutable: "immutable",
   },
 };
