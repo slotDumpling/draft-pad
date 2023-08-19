@@ -43,9 +43,11 @@ export const rightClickHandler: React.HTMLAttributes<HTMLDivElement> = {
 export function usePreventGesture() {
   useEffect(() => {
     const handler = (e: Event) => e.preventDefault();
+
     document.addEventListener("gesturestart", handler);
     document.addEventListener("gesturechange", handler);
     document.addEventListener("gestureend", handler);
+
     return () => {
       document.removeEventListener("gesturestart", handler);
       document.removeEventListener("gesturechange", handler);
