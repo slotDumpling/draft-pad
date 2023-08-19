@@ -28,9 +28,13 @@ jobs:
         run: npm run build
 
       - name: Update version
-        run: npm version patch
+        run: |
+          git config --global user.name $user_name
+          git config --global user.email $user_email
+          npm version patch
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
 
       - name: Publish
         run: npm publish
