@@ -978,14 +978,8 @@ const startRect = (point: paper.Point, drawCtrl?: DrawCtrl) => {
   const rect = new Path.Rectangle(point, new Size(0, 0));
   if (!drawCtrl) return rect;
   const color = new Color(drawCtrl.color);
-  if (drawCtrl.highlight) {
-    color.alpha = 0.5;
-    rect.fillColor = color;
-    rect.blendMode = "multiply";
-  } else {
-    rect.strokeWidth = drawCtrl.lineWidth;
-    rect.strokeColor = color;
-  }
+  rect.strokeWidth = drawCtrl.lineWidth;
+  rect.strokeColor = color;
   return rect;
 };
 
