@@ -25,6 +25,7 @@
     "@types/react": "^18.2.20",
     "@types/uuid": "^9.0.2",
     "css-loader": "^6.8.1",
+    "husky": "^8.0.3",
     "patch-package": "^8.0.0",
     "style-loader": "^3.3.3",
     "terser-webpack-plugin": "^5.3.9",

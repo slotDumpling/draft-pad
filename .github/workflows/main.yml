@@ -27,15 +27,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Update version
-        run: |
-          git config --global user.name $user_name
-          git config --global user.email $user_email
-          npm version patch
-        env:
-          user_name: "github-actions[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"
-
       - name: Publish
         run: npm publish
         env:
