@@ -916,13 +916,12 @@ DrawRaw.displayName = "Draw";
 export const Draw = React.memo(DrawRaw);
 
 function usePaperItem<T extends paper.Item>() {
-  const tuple = useState<T>();
-  const [item] = tuple;
+  const [item, setItem] = useState<T>();
   useDebugValue(item);
   // the paper view is removed in useLayoutEffect clean-up func
   // items with onFrame must be removed before view.
   useLayoutEffect(() => () => void item?.remove(), [item]);
-  return tuple;
+  return [item, setItem] as const;
 }
 
 const paintStroke = (() => {
