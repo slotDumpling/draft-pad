@@ -35,6 +35,7 @@ export interface DrawRefType {
   duplicateSelected: () => void;
   mutateStyle: (updated: Partial<DrawCtrl>) => void;
   mutatePointText: (cb: (prev: paper.PointText) => void) => void;
+  getPaperScope: () => paper.PaperScope;
 }
 interface DrawPropType {
   drawState: DrawState;
@@ -811,6 +812,9 @@ const DrawRaw = React.forwardRef<DrawRefType, DrawPropType>(
       duplicateSelected,
       mutateStyle,
       mutatePointText,
+      getPaperScope() {
+        return scope.current;
+      },
     }));
 
     usePreventGesture();
