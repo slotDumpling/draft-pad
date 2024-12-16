@@ -304,11 +304,7 @@ export class DrawState {
       case "erase":
         return DrawState.eraseStrokes(drawState, op.erased);
       case "mutate":
-        return DrawState.mutateStrokes(
-          drawState,
-          op.mutations,
-          op.timestamp ?? 0 // temporary fallback
-        );
+        return DrawState.mutateStrokes(drawState, op.mutations, op.timestamp);
       case "undo":
         return DrawState.undo(drawState);
       case "redo":
@@ -377,10 +373,6 @@ export class DrawState {
           originUid,
           (s) => s! && { ...s, pathData }
         );
-      } else if (/^HIDE_/.test(stroke.pathData)) {
-        // temporary fallback, delete this later.
-        const hideID = stroke.pathData.slice(5);
-        mergedStrokes = mergedStrokes.delete(hideID);
       } else {
         const { uid } = stroke;
         mergedStrokes = mergedStrokes.set(uid, stroke);
