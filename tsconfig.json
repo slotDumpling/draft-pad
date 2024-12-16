@@ -8,7 +8,9 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "declaration": true
+    "declaration": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true
   },
   "exclude": ["webpack.*", "dist/*"]
 }
